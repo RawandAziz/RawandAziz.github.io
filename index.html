@@ -6,13 +6,14 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <style>
         .map-container {
-            transition: opacity 0.2s ease-in-out;
-            display: none;
-            height: 85vh;
-        }
-        .map-container.active {
-            display: block;
-        }
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  height: 85vh;
+}
+
+.map-container.active {
+  opacity: 1;
+}
         button {
             margin: 10px;
         }
