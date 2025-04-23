@@ -49,10 +49,14 @@
 
     <script>
         function showMap(mapId) {
-            const maps = document.querySelectorAll('.map-container');
-            maps.forEach(div => div.classList.remove('active'));
-            document.getElementById(mapId).classList.add('active');
-        }
+  const maps = document.querySelectorAll('.map-container');
+  maps.forEach(div => div.classList.remove('active'));
+  document.getElementById(mapId).classList.add('active');
+
+  setTimeout(() => {
+    Plotly.Plots.resize(document.getElementById(mapId));
+  }, 50);
+}
     </script>
 
 </body>
