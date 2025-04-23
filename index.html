@@ -51,8 +51,11 @@
         function showMap(mapId) {
   const maps = document.querySelectorAll('.map-container');
   maps.forEach(div => div.classList.remove('active'));
-  document.getElementById(mapId).classList.add('active');
-  Plotly.Plots.resize(document.getElementById(mapId));
+  const target = document.getElementById(mapId);
+  target.classList.add('active');
+  requestAnimationFrame(() => {
+    Plotly.Plots.resize(target);
+  });
 }
     </script>
 
