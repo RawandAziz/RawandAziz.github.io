@@ -51,10 +51,17 @@
     <script>
         function showMap(mapId) {
   const maps = document.querySelectorAll('.map-container');
-  maps.forEach(div => div.classList.remove('active'));
+  maps.forEach(div => {
+    div.classList.remove('active');
+    div.style.display = 'none'; // fully hide others
+  });
+
   const target = document.getElementById(mapId);
-  target.classList.add('active');
+  target.style.display = 'block'; // show first to get correct dimensions
+
+  // Let the browser paint it, then mark it active and resize
   requestAnimationFrame(() => {
+    target.classList.add('active');
     Plotly.Plots.resize(target);
   });
 }
